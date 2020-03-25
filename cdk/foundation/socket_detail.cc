@@ -66,7 +66,7 @@ namespace detail {
 
 
 #ifdef _WIN32
-
+const error_category& winsock_error_category();
 /*
   error_category_winsock class
   ============================
@@ -76,6 +76,7 @@ namespace detail {
 
 class error_category_winsock : public error_category_base
 {
+  friend const error_category& winsock_error_category();
   error_category_winsock() {}
 
   const char* name() const NOEXCEPT { return "winsock"; }
@@ -141,8 +142,6 @@ DIAGNOSTIC_POP_CDK
       return false;
     }
   }
-
-  friend const error_category& winsock_error_category();
 };
 
 

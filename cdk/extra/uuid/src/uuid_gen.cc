@@ -36,10 +36,11 @@
 #else
 #include <cstring>
 #endif
+
 #include <algorithm>
 #include <stdexcept>
 
-#ifdef _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 
 typedef CRITICAL_SECTION pthread_mutex_t;
 typedef DWORD		 pthread_t;

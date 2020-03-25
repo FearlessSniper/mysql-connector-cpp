@@ -120,8 +120,9 @@ function(main)
 
     set_target_properties(openssl-applink PROPERTIES FOLDER "Misc")
     # Remove warnings from openssl applink.c
-    target_compile_options(openssl-applink PRIVATE /wd4152 /wd4996)
-
+	if(MSVC)
+		target_compile_options(openssl-applink PRIVATE /wd4152 /wd4996)
+	endif()
   endif()
 
 
